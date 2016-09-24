@@ -65,8 +65,8 @@
 
   var gotoLogin = function(){
     var returnUrl = window.location.href;
-    location.href = "http://testuser.haier.com/ids/cn/haier_login.jsp?returnUrl=" + returnUrl;
-    //location.href = "http://user.haier.com/ids/cn/haier_login.jsp?returnUrl=" + returnUrl;
+    location.href = "http://testuser.haier.com/ids/mobile/haier_login.jsp?returnUrl=" + returnUrl;
+    //location.href = "http://user.haier.com/ids/mobile/haier_login.jsp?returnUrl=" + returnUrl;
   };
 
   if(!istrsidssdssotoken()){//cookie 中的是否登录
@@ -82,12 +82,6 @@
         var isshow = data.data.isshow;
         if(isshow == 0){//无数据
           showOrderObj.myCpList = data.data.orderList;
-          /*showOrderObj.myCpList=[{
-           "id":11,
-           "order_id":222,  //订单号
-           "goods_id":3333,  //订单产品Id
-           "GOODS_NAME":1111,
-           }];*/
           $('#js-sdbtn').addClass("z-hide");
         }
         if(isshow == 1){
@@ -353,7 +347,7 @@
     var picLen = showPics.length;
     for(var i = 0; i < picLen; i++){
       var pic = showPics[i];
-      var img = $('<img src="' + pic + '"/>');
+      var img = $('<img class="img100per" src="' + '/files' + pic + '"/>');
       var imgPar = $('<div class="m-imgbox"></div>');
       imgPar.append(img);
     }
@@ -387,11 +381,11 @@
     for(var i = 0; i < len; i++){
       var ord = data[i];
       var name = $('<div class="m-name">' + ord.idsUserName + '</div>');
-      var img = $('<img src="' + ord.showPics + '"/>');
-      var proLeft = $('<div class="m-leftimg"></div>');
+      var img = $('<img class="img100per" src="' + '/files' + ord.showPics + '"/>');
+      var proLeft = $('<div class="js-m-leftimg m-leftimg"></div>');
       proLeft.append(img);
       var zanNum = $('<div class="m-num">' + ord.assistcount + '</div>');
-      var zan = $('<a class="z-zan" data-showOrderId="' + ord.idsUserId + '"></a>');
+      var zan = $('<a class="z-zan" data-showOrderId="' + ord.id + '"></a>');
       var zanPar = $('<div class="m-rigbtn"></div>');
       zanPar.append(zanNum);
       zanPar.append(zan);
@@ -450,7 +444,7 @@
     $this.prop('disabled', true);
     var url = urlObj.saveAssist;
     var params = {
-      showOrderId: showOrderObj.curMyOrdData.idsUserId
+      showOrderId: showOrderObj.curMyOrdData.id
     };
     Common.sendFormData(url, function(data){
       if(data.isSuccess){
@@ -470,7 +464,7 @@
     $('.z-dzan').click(myOrdClickZan);
     $('#js-mysd').click(showMyCpOrder);//绑定我的晒单
     $('#js-iwantsd').click(showMyCpList);//绑定我要晒单
-    $('.m-list').on('click', fillInProOrd);
+    $('.js-m-leftimg').on('click', fillInProOrd);
   }
 
   (function init(){
