@@ -7,7 +7,7 @@ li {list-style:none;}
 em, i, small, caption, th {font-weight:normal;font-style:normal;font-size:100%;}
 h1, h2, h3, h4, h5, h6, em, strong, b {font-weight:bold;font-size:100%;}
 caption{text-align:left;}
-body {word-wrap:break-word;	font:14px/normal  "微软雅黑", tahoma, arial, "宋体";color:#666;background:#efeff4 ; position:relative;}
+body {word-wrap:break-word;	font:14px/normal  "微软雅黑", tahoma, arial, "宋体";color:#666;background:#fff; position:relative;}
 textarea, input, button, select, pre {outline:0;font-size:inherit;line-height:inherit;color:inherit;font-family:inherit;}
 textarea{overflow:auto;resize:none;}
 input,textarea{padding:0 3px;}

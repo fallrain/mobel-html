@@ -299,8 +299,9 @@
       var img = $('<img class="img100per" src="' + '/files' + pic + '"/>');
       var imgPar = $('<div class="m-imgbox"></div>');
       imgPar.append(img);
+      showOrderImgPar.html(imgPar);
     }
-    showOrderImgPar.html(imgPar);
+
   }
 
 
