@@ -297,7 +297,7 @@
     var picLen = showPics.length;
     for(var i = 0; i < picLen; i++){
       var pic = showPics[i];
-      var img = $('<img src="' + pic + '"/>');
+      var img = $('<img class="img100per" src="' + '/files' + pic + '"/>');
       var imgPar = $('<div class="m-imgbox"></div>');
       imgPar.append(img);
     }
@@ -382,7 +382,7 @@
       var ord = data[i];
       var name = $('<div class="m-name">' + ord.idsUserName + '</div>');
       var img = $('<img class="img100per" src="' + '/files' + ord.showPics + '"/>');
-      var proLeft = $('<div class="js-m-leftimg m-leftimg"></div>');
+      var proLeft = $('<div class="js-m-leftimg m-leftimg" data-index="' + i + '"></div>');
       proLeft.append(img);
       var zanNum = $('<div class="m-num">' + ord.assistcount + '</div>');
       var zan = $('<a class="z-zan" data-showOrderId="' + ord.id + '"></a>');
@@ -393,7 +393,7 @@
       var proRight = $('<div class="m-rightbox"></div>');
       proRight.append(zanPar);
       proRight.append(txt);
-      var cpList = $('<div class="m-list" data-index="' + i + '"></div>');
+      var cpList = $('<div class="m-list"></div>');
       cpList.append(name);
       cpList.append(proLeft);
       cpList.append(proRight);
