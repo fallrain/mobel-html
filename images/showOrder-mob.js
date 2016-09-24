@@ -65,8 +65,8 @@
 
   var gotoLogin = function(){
     var returnUrl = window.location.href;
-    location.href = "http://testuser.haier.com/ids/mobile/haier_login.jsp?returnUrl=" + returnUrl;
-    //location.href = "http://user.haier.com/ids/mobile/haier_login.jsp?returnUrl=" + returnUrl;
+    location.href = "http://testuser.haier.com/ids/mobile/login.jsp?returnUrl=" + returnUrl;
+    //location.href = "http://user.haier.com/ids/mobile/login.jsp?returnUrl=" + returnUrl;
   };
 
   if(!istrsidssdssotoken()){//cookie 中的是否登录
@@ -100,7 +100,7 @@
   }
 
   function mysetinfo(){
-    var args = location.search.split('?');
+    var args = location.href.split('?');
     if(args[1] == 'mylist'){
       var wantData = args[2]
       wantData = decodeURI(wantData);
@@ -117,7 +117,7 @@
     var liAy = [];
     for(var i = 0; i < ordListLen; i++){
       var ord = ordList[i];
-      var li = '<li data-id="' + ord.id + '" data-productID="' + ord.goods_id + '" data-orderId="' + ord.order_id + '" data-productDesc="' + ord.GOODS_NAME + '">';
+      var li = '<li data-productID="' + ord.GOODS_ID + '" data-orderId="' + ord.ORDER_ID + '" data-productDesc="' + ord.GOODS_NAME + '">';
       li += ord.GOODS_NAME + '</li>';
       liAy.push(li);
     }
@@ -167,7 +167,7 @@
             $('#upImg' + btnIdNum).css('display', 'block');
             smtImgsAy.push(picSrc);
           }else{
-            alert(data.resultMsg);
+            //alert(data.resultMsg);
           }
         },
         // 系统信息显示（例如后缀名不合法）
@@ -235,10 +235,9 @@
     Common.sendFormData(url, function(data){
       if(data.isSuccess){
         //成功則跳轉頁面
-        location.href = 'mob-index.html';
+        location.href = 'index.html';
       }else{
         alert(data.resultMsg);
-        location.href = 'mob-index.html';
       }
     }, params);
   }
@@ -266,9 +265,9 @@
   }
 
   function myseordsetinfo(){
-    var args = location.search.split('?');
+    var args = location.href.split('?');
     if(args[1] == 'myOrder'){
-      var mycpData = args[2]
+      var mycpData = args[2];
       mycpData = decodeURI(mycpData);
       mycpData = JSON.parse(mycpData);
       showOrderObj.curMyOrdData = mycpData;
@@ -316,7 +315,7 @@
   }
 
   function myordsetinfo(){
-    var args = location.search.split('?');
+    var args = location.href.split('?');
     if(args[1] == 'otherOrder'){
       var sendData = args[2]
       sendData = decodeURI(sendData);
@@ -369,7 +368,7 @@
         //给定单绑定跳转
         $('.js-m-leftimg').on('click', showMyOrder);
       }else{
-        alert(data.resultMsg);
+        //alert(data.resultMsg);
       }
     });
   };
@@ -430,11 +429,11 @@
   function checkNumOfContent(str){
     /*检查字数*/
     var len = str.split('').length;
-    if(len > 10 && len <= 100){
-      $('#showContentTip').html('输入晒单文字不得少于10个字多于100个字');
+    if(len > 50 && len <= 100){
+      $('#showContentTip').html('输入晒单文字不得少于50个字多于100个字');
       return true;
     }
-    $('#showContentTip').html('输入错误！输入晒单文字不得少于10个字多于100个字');
+    $('#showContentTip').html('输入错误！输入晒单文字不得少于50个字多于100个字');
   }
 
 
@@ -448,7 +447,10 @@
     };
     Common.sendFormData(url, function(data){
       if(data.isSuccess){
-        $this.addClass('z-crt');
+        $this.find('.z-dzan').addClass('z-crt');
+        var othdznum = $('#js-othdznum');
+        var num = othdznum.html() * 1
+        $('#js-othdznum').html(++num);
       }else{
         $this.prop('disabled', false);
         alert(data.resultMsg);
@@ -461,7 +463,7 @@
     $('#js-prolist').on('click', clickZan);
     $('#z-up').on('click', smtOrd);
     bindUpImg();//绑定上传图片事件
-    $('.z-dzan').click(myOrdClickZan);
+    $('.js-otherzan').click(myOrdClickZan);
     $('#js-mysd').click(showMyCpOrder);//绑定我的晒单
     $('#js-iwantsd').click(showMyCpList);//绑定我要晒单
     //$('.js-m-leftimg').on('click', fillInProOrd);
