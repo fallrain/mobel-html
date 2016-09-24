@@ -153,7 +153,7 @@
         // 上传完成事件
         onComplete: function(name, data){
           if(data.isSuccess){
-            var picSrc = '/files/' + data.data; //获取图片路径
+            var picSrc = data.data; //获取图片路径
             var btn = this.button;
             var img = btn.siblings('img');
             img.prop('src', picSrc);
