@@ -367,7 +367,7 @@
         //添加进去
         orderListPar.html(orderListHtml);
         //给定单绑定跳转
-        $('.m-list').on('click', showMyOrder);
+        $('.js-m-leftimg').on('click', showMyOrder);
       }else{
         alert(data.resultMsg);
       }
@@ -464,7 +464,7 @@
     $('.z-dzan').click(myOrdClickZan);
     $('#js-mysd').click(showMyCpOrder);//绑定我的晒单
     $('#js-iwantsd').click(showMyCpList);//绑定我要晒单
-    $('.js-m-leftimg').on('click', fillInProOrd);
+    //$('.js-m-leftimg').on('click', fillInProOrd);
   }
 
   (function init(){
