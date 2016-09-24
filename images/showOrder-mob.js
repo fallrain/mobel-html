@@ -415,7 +415,7 @@
     };
     Common.sendFormData(url, function(data){
       if(data.isSuccess){
-        var $zanNum = $($tg.siblings('.m-nubmer'));
+        var $zanNum = $($tg.siblings('.m-num'));
         var num = $zanNum.html() * 1;
         $zanNum.html(++num);
         $tg.addClass('z-crt');
