@@ -146,28 +146,28 @@
     for(var i = 0; i < 5; i++){
       $.jUploader({
         button: 'upImg' + i, // 这里设置按钮id
-        action: urlHead + '/showorder/showOrderPicUpload',
+        action: '/showorder/showOrderPicUpload',
         // 开始上传事件
         onUpload: function(data){
         },
         // 上传完成事件
         onComplete: function(name, data){
-          if(data.isSuccess){
-            var picSrc = data.data; //获取图片路径
+          if(new Object().toString.call(data) == '[object String]'){
+            var picSrc = data; //获取图片路径
             var btn = this.button;
             var img = btn.siblings('img');
-            img.prop('src', picSrc);
+            img.prop('src', '/files' + picSrc);
             btn.css('display', 'none');
             img.css('display', 'block');
             var btnId = btn.prop('id');
             var btnIdNum = btnId.substr(btnId.length - 1) * 1 + 1;
-            if(btnIdNum > 4){
+            if(btnIdNum > 5){
               return;
             }
             $('#upImg' + btnIdNum).css('display', 'block');
             smtImgsAy.push(picSrc);
           }else{
-            //alert(data.resultMsg);
+            alert(data.resultMsg);
           }
         },
         // 系统信息显示（例如后缀名不合法）
@@ -384,7 +384,12 @@
       var proLeft = $('<div class="js-m-leftimg m-leftimg" data-index="' + i + '"></div>');
       proLeft.append(img);
       var zanNum = $('<div class="m-num">' + ord.assistcount + '</div>');
-      var zan = $('<a class="z-zan" data-showOrderId="' + ord.id + '"></a>');
+      var zan = '';
+      if(ord.assistId > 0){
+        zan = $('<a class="z-zan z-crt" data-showOrderId="' + ord.id + '"></a>');
+      }else{
+        zan = $('<a class="z-zan" data-showOrderId="' + ord.id + '"></a>');
+      }
       var zanPar = $('<div class="m-rigbtn"></div>');
       zanPar.append(zanNum);
       zanPar.append(zan);

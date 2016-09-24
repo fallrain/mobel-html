@@ -58,11 +58,11 @@ figure{ margin:0;}
 
 /* ------ 下拉框 ------ */
 .m-leftpart .select_box{ width:362px; height:40px; line-height:40px; border:1px solid #d4d4d4; position:relative; float:left;}
-.m-leftpart .select_box span{ display:inline-block; width:362px; height:40px; line-height:40px; cursor:pointer; text-indent:10px; text-align:left; color:#222; font-size:16px; background:url(ico-seldown.png) 334px center no-repeat;}
+.m-leftpart .select_box span{ display:inline-block; width:362px; height:40px; line-height:40px; cursor:pointer; text-indent:10px; text-align:left; color:#222; font-size:16px; background:url(ico-seldown.png) 334px center no-repeat; overflow: hidden;}
 .m-leftpart .select_box .span_aa{ box-shadow:0 5px 5px #e6e6ea;background:url(ico-selup.png) 334px center no-repeat;}
 /*.m-leftpart .select_box ul{ width:362px; position:absolute; top:38px; left:-1px; border:1px solid #ddd; border-top:none; background:#fff; box-shadow:0 5px 5px #e6e6ea; height:100px; overflow-x:hidden; overflow-y:auto;}*/
 .m-leftpart .select_box ul{ width:100%; display:inline-block;}
-.m-leftpart .select_box li{ width:100%; display:inline-block; cursor:pointer; line-height:24px; text-indent:10px; height:24px; text-align:left;}
+.m-leftpart .select_box li{ width:100%; display:inline-block; cursor:pointer; line-height:24px; text-indent:10px; height:24px; text-align:left; overflow: hidden;}
 .m-leftpart .select_box li:hover{ background:#309efb; color:#fff;}
 
 /* ------ 自定义滚动条 ------ */
@@ -213,10 +213,10 @@ figure{ margin:0;}
 
 /* ------ 下拉框 ------ */
 .m-mobcont .m-in .m-ref .select_box{ width:572px; height:72px; line-height:72px; border:2px solid #d4d4d4; position:relative; float:left;}
-.m-mobcont .m-in .m-ref .select_box span{ display:inline-block; width:572px; height:72px; line-height:72px; cursor:pointer; text-indent:40px; text-align:left; color:#1b7df6; font-size:26px; background:url(ico-seldown.png) 544px center no-repeat;}
+.m-mobcont .m-in .m-ref .select_box span{ display:inline-block; width:572px; height:72px; line-height:72px; cursor:pointer; text-indent:40px; text-align:left; color:#1b7df6; font-size:26px; background:url(ico-seldown.png) 544px center no-repeat; overflow: hidden;}
 .m-mobcont .m-in .m-ref .select_box .span_aa{ box-shadow:0 5px 5px #e6e6ea;background:url(ico-selup.png) 544px center no-repeat;}
 .m-mobcont .m-in .m-ref .select_box ul{ width:100%; display:inline-block;}
-.m-mobcont .m-in .m-ref .select_box li{ cursor:pointer; line-height:36px; text-indent:40px; height:36px; text-align:left; font-size:18px;}
+.m-mobcont .m-in .m-ref .select_box li{ cursor:pointer; line-height:36px; text-indent:40px; height:36px; text-align:left; font-size:18px; overflow: hidden;}
 .m-mobcont .m-in .m-ref .select_box li:hover{ background:#309efb; color:#fff;}
 
 /* ------ 自定义滚动条 ------ */
